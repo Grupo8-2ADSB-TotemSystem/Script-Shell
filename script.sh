@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "Definindo senha do Usuário"
+sudo passwd
+
 echo "Deseja instalar a interface gráfica? (s/n)"
 read inst
 if [ \"$inst\" == \"s\" ];
@@ -9,6 +12,7 @@ else
 fi
 
 sudo apt update && sudo apt upgrade -y
+
 java --version
 if [ $? -eq 0 ];
 then
@@ -33,7 +37,7 @@ else
 	then
 		sudo apt install docker.io -y
 
-		echo "Iniciando Docker"
+		echo "Iniciando Aplicação TotemSystem"
 		echo "Caminho: "
 		pwd
 		sudo systemctl start docker
@@ -137,7 +141,10 @@ else
 	fi
 fi
 
-cd ~/Desktop
+sudo docker pull openjdk:11
 git clone https://github.com/Grupo8-2ADSB-TotemSystem/Java_Totem_System.git
+sudo docker build -t Totem_System-1.0-SNAPSHOT-jar-with-dependencies.jar.
+sudo docker run -it --rm --name totem-system-java openjdk:11
+
 cd Java_Totem_System/Totem_System/target
 java -jar Totem_System-1.0-SNAPSHOT-jar-with-dependencies.jar
