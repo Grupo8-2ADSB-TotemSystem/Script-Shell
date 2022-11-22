@@ -40,9 +40,9 @@ else
 		echo "Iniciando Aplicação TotemSystem"
 		echo "Caminho: "
 		pwd
+		ls
 		sudo systemctl start docker
 		sudo systemctl enable docker
-		cd ..
 		cd ~/home/$USER/docker-mysql/
 		sudo docker-compose up -d
 		sudo docker start CONTAINER_TOTEMDB
