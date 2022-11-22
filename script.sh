@@ -43,7 +43,7 @@ else
 		ls
 		sudo systemctl start docker
 		sudo systemctl enable docker
-		cd ~/home/$USER/docker-mysql/
+		cd docker-mysql
 		sudo docker-compose up -d
 		sudo docker start CONTAINER_TOTEMDB
 		sudo docker exec -it $(sudo docker ps -aqf "name=containerDB") mysql -u root -p -B -N -e "
